@@ -1,0 +1,150 @@
+'use strict'
+var request = require('request');
+var axios = require('axios');
+var qs = require('qs');
+
+
+
+const confApi = require('../../confs/api');
+const confsDB = require('./ConfsSessao_controller');
+
+
+// RBS Ricardo envio de arquivo
+
+exports.send_postAudio = async function (dadosaudio,sessao, type) {
+
+  var remote = await confsDB.get({"client_id":sessao});
+  var url_ = undefined;
+
+  console.log("Testando dados do banco: ")
+  //console.log(remote);return;
+
+  if(remote.length == 0){
+    console.log("👉👉cliente não possui dados na tabela usuarios.");
+    return { "result": false, "erro":"cliente não possui dados na tabela usuarios." };
+  }
+
+  if (type == "arquivo") {
+    //postConf = confApi.ENDPOINTS.mensagem;
+    url_ = remote[0].webhooks;
+
+  } else {
+    console.log("Tipo de arquivo tratado nesta função.")
+    return { "result": false };
+  }
+console.log(remote[0].webhooks);
+
+  if (url_ == undefined || url_ == "") {
+    return;
+  }
+
+
+  var config = {
+    method: 'post',
+    url: url_,
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Cookie': 'laravel_session=04RhGmoEK36zJnUUbAGQVdPyBcc6OZH9i1tKiAuS'
+    },
+    data: dadosaudio
+  };
+console.log(config);
+  await axios(config)
+    .then(function (response) {
+      console.log("---------------------------");
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+}
+
+// End
+
+
+
+
+/* enviar um post para php */
+exports.send_post = async function (params,sessao, type) {
+
+  var remote = await confsDB.get({"client_id":sessao});
+  var url_ = undefined;
+  var autenticar = false;
+  var postConf = undefined;
+  
+
+  if(remote.length == 0){
+    return { "result": false, "erro":"cliente não possui dados na tabela usuarios." };
+  }
+
+
+  if (type == "add_contact") {
+
+    postConf = confApi.ENDPOINTS.add_contato;
+    url_ = postConf.url.link;
+    /* verificar se precisa de autenticação */
+    autenticar = postConf.autenticar;
+    
+  }else if(type == "message") {
+
+    postConf = confApi.ENDPOINTS.mensagem;
+    url_ = remote[0].webhooks; /* link do banco de dados usuaros (remoto) */
+
+  } else {
+    return { "result": false };
+  }
+
+  
+  //console.log(params);
+  if (url_ == undefined || url_ == "") {
+    return;
+  }
+ 
+
+  var auth = "";
+  var header = { 
+    'Content-Type': 'application/json'    ,
+     
+  };
+
+
+
+
+  if (autenticar == true) {
+
+{'Content-Type': 'application/x-www-form-urlencoded' }{'Content-Type': 'application/x-www-form-urlencoded' }{'Content-Type': 'application/x-www-form-urlencoded' }    //  auth = "Basic " + new Buffer(username + ":" + password).toString("base64");
+    auth = { 'api_access_token': postConf.url.token };
+    header.push(auth);
+
+  }
+
+  header.push({'Content-Type': 'application/x-www-form-urlencoded' });
+
+  return new Promise(async (resolve, reject) => {
+
+    var options = {
+      'method': 'POST',
+      'url': url_,
+      'headers': header,
+      body: JSON.stringify(params)
+    };
+
+
+
+    request(options, function (error, response, body) {
+      if (error) {
+        console.log("Ocorreu um erro : 👉🏻👉🏻" + error);
+        reject({ "result": false, "info": error });
+        return;
+
+      };
+      console.log("Retorno do endpoint: 👉🏻👉🏻" + body.substr(1, 500))
+      resolve({ "result": true, "info": body.substr(1, 500) });
+    });
+
+
+  });
+
+}
+
