@@ -6,7 +6,7 @@
 # Via API
  Este projeto usa como base o [My Whats](https://github.com/AlanMartines/mywhats-api-node), que por sua vez é um fork do projeto [myzap](https://github.com/billbarsch/myzap "myzap") do [@billbarsch](https://github.com/billbarsch "@billbarsch").
 
-E tem por motor o [Venom-bot](https://github.com/orkestral/venom "Venom-bot"), um navegador virtual sem interface gráfica que abre o whatsapp web e executa todos os comandos via código possibilitando assim a automação de todas as funções.
+Ele tem por motor o [Venom-bot](https://github.com/orkestral/venom "Venom-bot"), um navegador virtual sem interface gráfica que abre o whatsapp web e executa todos os comandos via código possibilitando assim a automação de todas as funções.
 
 
 ## Dependências
