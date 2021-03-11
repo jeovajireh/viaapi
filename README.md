@@ -1,8 +1,3 @@
-
-<p align="center">
-  <img src="./public/images/whatsapp-bot.png" width="150" alt="My Whats">
-</p>
-
 # Via API
  Este projeto usa como base o [My Whats](https://github.com/AlanMartines/mywhats-api-node), que por sua vez é um fork do projeto [myzap](https://github.com/billbarsch/myzap "myzap") do [@billbarsch](https://github.com/billbarsch "@billbarsch").
 
