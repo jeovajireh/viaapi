@@ -3,10 +3,7 @@ const confsDB = require('../src/controllers/ConfsSessao_controller');
 
 /* ex.: endpoint:  http://localhost/mywhats-api/endpoints/message.php */
 
-//const base_url = "http://127.0.0.1/ricardo/sgp";
-
 //const base_url = "https://webhook.site/ef01c564-7cea-4b81-bfec-8a9c9abd8f76";
-
 
 const base_url = "https://MUDAR.requestcatcher.com/";
 
