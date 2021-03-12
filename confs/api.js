@@ -8,7 +8,7 @@ const confsDB = require('../src/controllers/ConfsSessao_controller');
 //const base_url = "https://webhook.site/ef01c564-7cea-4b81-bfec-8a9c9abd8f76";
 
 
-const base_url = "https://viapratica.requestcatcher.com/";
+const base_url = "https://MUDAR.requestcatcher.com/";
 
 const token = "NQfhAnM58ThYybXV119BYrLP";
 
