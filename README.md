@@ -13,6 +13,13 @@ Node 12<br>
 Mongodb
 <br>
 
+
+## Detalhes da instalação <br>
+
+Criar o banco de dados com o dump da pasta db <br>
+Modificar os dados de conexão no arquivo confs/db.js <br>
+Ajustar o endereço do endpoint em base_url no arquivo confs/api.js <br><br>
+
 #### Iniciar sessão whatsapp (POST method)
 ```node
 router.post("/Start", (req, res, next) => {
