@@ -2,17 +2,16 @@
 var qs = require('querystring');
 /* link painel do db online: https://cloud.mongodb.com/v2/ */
 var credencials = {
-        "host":"localhost",
+        "host":"cluster0.oktlk.mongodb.net",
         "porta":"27017",
-        "user":"viapratica",
-        "passwd": "MUDAR",
-        "db":"whatsapp"
+        "user":"joao",
+        "passwd": "pUW8rr2v9xgEBfJ",
+        "db":"api"
 }
-
 
 var config = {
 
-        'uriExterno': 'mongodb://'+ credencials.user +':' + qs.escape(credencials.passwd) + '@'+ credencials.host +':'+ credencials.porta +'/'+ credencials.db +'?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false',
+        'uriExterno': 'mongodb+srv://'+ credencials.user +':' + qs.escape(credencials.passwd) + '@'+ credencials.host +'/'+ credencials.db +'?retryWrites=true&w=majority',
         'uriLocal':'mongodb://localhost:'+ credencials.porta +'/'+credencials.db               
 };
 

@@ -32,6 +32,7 @@
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.0.20",
     "@open-wa/wa-decrypt": "^3.0.0",
+    "@wppconnect-team/wppconnect": "^1.6.0",
     "atob": "^2.1.2",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
@@ -42,7 +43,7 @@
     "concurrently": "^5.3.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
+    "dotenv": "^10.0.0",
     "dotenv-safe": "^8.2.0",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
@@ -70,7 +71,6 @@
     "sessions": "0.0.2",
     "sharp": "^0.26.3",
     "spinnies": "^0.5.1",
-    "tree-kill": "^1.2.2",
-    "venom-bot": "^3.0.8"
+    "tree-kill": "^1.2.2"
   }
 }

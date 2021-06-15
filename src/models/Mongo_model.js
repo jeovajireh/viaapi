@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const db = require('../../confs/db');
 
 /* url de conexão com banco (realizar conexao) */
-const uriDb = db.uriLocal; /* local ou externo */
+const uriDb = db.uriExterno; /* local ou externo */
 
 mongoose.connect(uriDb, { 
     useNewUrlParser: true

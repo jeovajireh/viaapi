@@ -11,6 +11,8 @@ const web = express();
 const cors = require('cors');
 const sistem = require("./src/routes/sistem.routes");
 
+require('dotenv').config();
+
 const ssl = process.env.HTTPS || true;
 const hostname = process.env.HOST || '0.0.0.0';
 const port = process.env.PORT || 9001;
