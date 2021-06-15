@@ -2,11 +2,11 @@
 var qs = require('querystring');
 /* link painel do db online: https://cloud.mongodb.com/v2/ */
 var credencials = {
-        "host":"cluster0.oktlk.mongodb.net",
+        "host":"localhost",
         "porta":"27017",
-        "user":"joao",
-        "passwd": "pUW8rr2v9xgEBfJ",
-        "db":"api"
+        "user":"viapratica",
+        "passwd": "MUDAR",
+        "db":"whatsapp"
 }
 
 var config = {
